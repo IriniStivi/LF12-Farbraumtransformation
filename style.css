@@ -1,0 +1,45 @@
+
+/* CSS Farbtransformation */
+
+body {
+	width: 90%;
+	max-width: 800px;
+	margin: 0 auto;
+	line-height: 1.2rem;
+	font-family: sans-serif;
+	color: #333333;
+	text-align: justify;
+	}
+
+h1 {
+	text-align: left;
+	line-height: 1.2em;
+}
+	
+h2 {
+	color: #99CFFF;
+	text-shadow: 1px 1px 1px grey;
+}
+
+h3,
+.text-white {
+	color: white;
+	text-shadow: 1px 1px 1px grey;
+}
+
+.ri-box {
+	border: 1px solid white; 
+	height: auto; 
+	width: 100%; 
+	padding: 10px; 
+	border-radius: 20px; 
+	background-image: linear-gradient(to bottom, #99CFFF, #99FFFF);
+}
+
+.simple-box {
+	padding: 10px; 
+	border: 1px solid #333333; 
+	border-radius: 20px; 
+	max-width: 500px;
+}
+
