@@ -1,55 +1,91 @@
 <!DOCTYPE html>
-<html>
+<html lang="de">
+
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Farbtransformation</title>
-<link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa:400,600,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Farbraumtransformation</title>
 </head>
 
-
 <body>
-<h1>1. Farbraumtransformation (Gamut  Mapping)</h1>
-  <h2>Gamut Map:</h2>
-  <p>Farbumfang; bezeichnet den von einem bestimmten Eingabe- oder Ausgabegerät  (Scanner, Digitalkamera, Monitor, Drucker) erfassbaren oder darstellbaren  Teilbereich eines Farbraums.<br /><br />
-  Eingabe-, Betrachtungs- und Ausgabesysteme arbeiten mit  unterschiedlichen Techniken der farbmetrischen Darstellung. Bei jeder  Umrechnung von einem Farbraum (z.B. Scanner) in einen anderen Farbraum (z.B.  Bildschirm) erfolgt deshalb eine Farb­raumtransformation. Meist müssen Farb­räume  mit höherem Informationsumfang zu einem solchen mit niedrigerem Umfang  transformiert werden. Von dem Referenzfarbraum (CIE-Lab) mit dem größtmöglichen  Farbumfang wird dann zum jeweiligen Zielfarbraum (RGB, CMYK) umgerechnet.  Dieser Vorgang wird Gamut Mapping genannt. Dabei wird ein bestimmter Farbwert,  der außerhalb des Zielfarbraumes liegt, so behandelt, dass ursprüngliche  Farbunterschiede erhalten bleiben. Es gibt vier unterschiedliche Verfahren, die  Rendering Intent genannt werden: wahrnehmungsorientiert, relativ farbmetrisch,  absolut farbmetrisch, sättigungsorientiert.</p>
-  <h2>Gamut Mapping:</h2>
-  <p>bezeichnet die Umsetzung von zwei beliebigen Farbräumen ineinander, wobei man  immer einen Kompromiss eingehen muss; geringe Verluste in der Farbwiedergabequalität  sind kaum zu vermeiden</p>
-  <p>Das Gamut Mapping ist also die Transformation der Farbräume. Der Gamut  (englisch: Tonleiter, Skala, Farbpalette) ist die Menge aller Farben, die ein  Gerät (Monitor, Drucker, Scanner, Film) darstellen, wiedergeben und aufzeichnen  kann.<br /><br />
-  Die wesentlichen Aufgaben des Colormanagement ist es, die Gamuts verschiedener  Geräte so aufeinander abzubilden, dass möglichst wenige störende  Farbverschiebungen und Abrisse entstehen.<br />
-  Ist der ursprüngliche Farbraum größer als jener, in den umgewandelt  werden soll, ist es sehr wahrscheinlich, dass bei der Reproduktion bestimmte  Farben vom Zielmedium nicht korrekt abgebildet werden. Um diese Abweichungen so  weit wie möglich in Grenzen zu halten, nutzt man die sog. Rendering Intents.</p>
-<div class="ri-box">  
-<h2 class="text-white" >Rendering Intents:</h2>
-  <p>Rendering Intents definieren, auf welche Art und Weise diese  Überführung der einzelnen Farben eines Bildes von einem Farbraum in den anderen  stattfinden soll. Vor allem dann, wenn Bilder aus einem größeren in einen  kleineren Farbraum transformiert werden, wie das meist bei der RGB-CMYK-Umwandlung  der Fall ist, erhält man je nach gewähltem Rendering Intent ganz  unterschiedliche Resultate.<br />
-  Je nachdem, welches Ziel mit der Farbtransformation erreicht werden soll, wird  ein jeweils diesem Ziel entsprechender Rendering Intent gewählt. Vom ICC wurden  deshalb vier verschiedene Rendering Intents festgelegt. Es sind dies der  wahrnehmungsorientierte, der relativ farbmetrische, der absolut farbmetrische  und der sättigungserhaltende Rendering Intent.</p>
-  <h3>a) Wahrnehmungsorientiert</h3>
-  <p>Dieser Rendering Intent passt die Farben so an, dass die Anmutung der  Farbunterschiede erhalten bleibt. Auf diese Weise werden Bilder auch in einem  kleineren Farbraum so dargestellt, dass die Bilder als möglichst originalgetreu  empfunden werden. Die Farben selbst unterliegen (wenn von einem größeren in  einen kleineren Farb­raum transformiert wird) einer Änderung. Dies bedeutet,  dass auch Farben, die in einem kleineren Farbraum dargestellt werden könnten,  nicht immer auch identisch dargestellt werden. Dies ist nötig, um die Farbunterschiede  in einem Bild so zu erhalten, dass im Gesamtergebnis ein gleichwertiger  Eindruck eines Bildes entsteht.</p>
-  <h3>b) Relativ farbmetrisch</h3>
-  <p>Mit dieser Art der Farbraumtransformation wird keine Rücksicht auf die  Farbunterschiede innerhalb eines Bildes genommen. Wird ein Bild mit diesem  Rendering Intent transformiert, so werden die Farben, die im kleineren Farbraum  dargestellt werden können, exakt so dargestellt wie im Original. Farben, die  nicht dargestellt werden können, werden einfach «abgeschnitten» und so  reproduziert, wie es möglich ist. Dieser Rendering Intent eignet sich deshalb  in der Regel nicht, um Bilder von einem größeren in einen kleineren Farbraum zu  transformieren. Er lässt sich jedoch verwenden, um die Farbdarstellung eines  kleineren Farb­raums auf einem Gerät mit größerem Farbraum zu simulieren, wie  dies beim Digitalproof oder Softproof der Fall ist. Da dieser Intent die Farbe  des Bedruckstoffs (Weißpunkt) nicht berücksichtigt und z.B. beim Proofen einer  Zeitungsseite auf einem hochweißen Proofpapier das Weiß des  Bedruckstoffs/Papiers nicht darstellen würde, sollte dieser besonders dann  verwendet werden, wenn auf einem Auflagenpapier geprooft wird.</p>
-  <h3>c) Absolut farbmetrisch</h3>
-  <p>Dieser Rendering Intent funk­tio­niert gleich wie der relativ farb­metrische,  jedoch mit dem Unterschied, dass der Weißpunkt (Bedruckstoff/Papier)  mitdargestellt wird. Aus diesem Grund eignet sich dieser Rendering Intent  besonders, um auf hochweißen Proofpapieren sowohl die Farbdarstellung eines  (kleineren) Farbraums wie auch den Weißpunkt (Bedruckstoff/Papier) zu  simulieren. Er ist jedoch ungeeignet, um Bildmaterial von einem größeren in  einen kleineren Farbraum zu transformieren.</p>
-  <h3>d) Sättigungserhaltend</h3/>
-  <p>Der vierte Rendering Intent ist vorwiegend für Businessgrafiken gedacht, die  möglichst «leuchtend» dargestellt werden sollen. Bei diesem Rendering Intent  wird weniger auf die «Farbtreue» als auf die Sättigung Wert gelegt. Er wird in  der Farbmanagementpraxis sehr selten angewandt und ist beim farbmanagenden Anwender  eher unbeliebt, da beim Farbmanagement ja normalerweise mehr auf  kontrollierbare als auf leuchtende, satte Farben Wert gelegt wird.</p>
-</div>
-<p>&nbsp;</p>
-  
-<h1>2. Grenzen der Farbraumtransformation</h1>
-  <p>Dank ICC-Farbprofilen lassen sich  Daten von einem Farbraum in einen anderen transformieren, wobei die  Farbwiedergabe so gut wie möglich erhalten bleibt. Problematisch ist jedoch,  von einem CMYK in ein anderes CMYK zu konvertieren. Dann geht nämlich der  Separationsaufbau im Schwarzkanal verloren. Dies, weil eine  Farbraumtransformation zwischen ICC-Profilen in zwei Schritten erfolgt: Zuerst  vom Quellprofil in den Referenzfarbraum, den geräteunabhängigen <em>Profile Connection Space</em> (PCS),  und anschließend vom PCS in den Zielfarb­raum. Als PCS dient dabei CIELAB  (L*a*b*) oder CIEXYZ – beides Farb­räume mit drei Kanälen, die sämtliche  sichtbaren Farben darstellen können.<br /><br />
-  Der vierte Kanal eines CMYK-Farbraums  ist farbmetrisch «redundant». Das heißt, er ist für eine eindeutige Festlegung  der Farbe im Prinzip überflüssig. Mehrere äquivalente Kombinationen von  CMYK-Werten beschreiben jeweils ein und dieselbe Farbe. Welcher  Separationsaufbau – vor allem welcher Anteil Schwarz – gewählt wird, kann zwar  technische Auswirkungen haben, wird aber bei der Transformation via PCS nicht  berücksichtigt.<br /><br />
-  Um dieses Manko zu beheben, sind  Device-Link-Profile entwickelt worden. Diese transformieren die Farbwerte  mittels nur einer Farbtabelle direkt vom Quell- in den Zielfarbraum. Durch den  Verzicht auf den PCS fällt hier aber auch die Möglichkeit weg, Farben zwischen  beliebigen Profilen zu konvertieren; ein Device-Link-Profil beherrscht jeweils  nur genau eine ganz bestimmte Transformation, von Farbraum A nach Farbraum B.  Schon für die Gegenrichtung, von B nach A, braucht es ein separates  Device-Link-Profil. Ebenso für jeden anderen Quell- oder Zielfarbraum.<br /><br />
-  (Es wird vorerst nur eine  Übersetzungstabelle (Link-Table) geschaffen, die unter Berücksichtigung  diverser Parameter (wie Rendering Intent, Tiefenkompensation etc.) die  entsprechenden Tabellen (A2B des Quellprofils und B2A des Zielprofils) mithilfe  des Profile Connection Space verbindet. So entsteht ein temporäres  »DeviceLink-Profil«, welches die Bildpixel direkt vom Quell- ins Zielprofil  konvertiert. Das heißt, dass sich die eigentlichen Bildinformationen, also die  Pixel, zu keinem Zeitpunkt im PCS befinden. LAB oder XYZ ist also kein  Zwischenschritt bei der Konvertierung der Bilder, sondern nur einer bei der  Verknüpfung der beiden Profile bzw. der beiden Tabellen.)<br /><br />
-  Beim Erzeugen eines  Device-Link-Profils lässt sich die Transformation gezielt steuern. Zum Beispiel  kann bei einer CMYK-zu-CMYK-Transformation der Schwarzkanal erhalten werden.  Oder bestimmte Farben können unabhängig vom globalen Separationsaufbau in  spezifische CMYK-Werte übersetzt werden (dies kann etwa bei Haus- und  Logofarben nützlich sein). Da Device-Links nicht auf ein einziges Farbmodell  beschränkt sind, gelten solche Möglichkeiten zum Feintuning beispielsweise auch  für RGB zu CMYK.<br /><br />
-  Generell ist mit  Device-Link-Profilen oft eine qualitativ bessere Transformation von RGB nach  CMYK möglich, weil keine störenden Effekte durch den Zwischenschritt über den  PCS das Ergebnis beeinträchtigen. Bei normalen Farbprofilen kann jedoch das  zweifache Umrechnen vom Quellfarb­raum in den PCS und von dort in den Zielfarb­raum  zur Verschmutzung hoch gesättigter Originalfarben oder zu unsauberen  Farbverläufen führen.<br /><br />
-  Device-Link-Konvertierungen  können dort helfen, wo das normale Farbmanagement an seine Grenzen stößt. Ein  häufiger Problemfall sind zum Beispiel Druck-PDF, die mit einem Office-Programm  erstellt worden sind. Letzteres kennt nur das RGB-Farbmodell, sodass schwarzer  Text als RGB (0/0/0) in die Datei geschrieben wird. Anders als bei einem Foto,  wo diese Wertekombination in ein vierfarbiges Tiefschwarz konvertiert werden  muss, soll Text hingegen einfarbig schwarz gedruckt werden. Dazu müssen Pixel  und Vektoren separat behandelt werden. Und das geht am besten per Farbserver, der jedoch sehr teuer ist.</p>
-<p>&nbsp;</p>
+    <main>
 
-<div class="simple-box"> 
-  <h2>Vertiefende Fragen</h2>
-  <ol>
-  	<li>Wozu wird Farbtransformation gebraucht?</li>
-  	<li>Welchs Probleme ergeben sich bei der Farbtransformation von CMYK nach RGB?</li>
-  	<li>Welcher Rendering Intent bietet sich bei der Konvertierung einer Digitalfotographie zu einer Druckdatei?</li>
-  	<li>Welchen Vorteil bieten Device-Link-Profile?</li>
-  	<li>Wo liegt der Nachteil eines Device-Link-Profils?</li>
-  </ol>
+        <section id="slide1">
+            <h1>Definition Farbraumtransformation/Gamut Mapping</h1>
+            <a href="#slide2">weiter ></a>
+            <div style="position: relative; display: flex; width: 90%; flex-direction: column; margin: 50px auto; padding: 50px 0px; border: 2px solid #333333; border-radius: 20px;">
+                <p>Das Gamut Mapping ist die Transformation der Farbräume. Der Gamut (englisch: Tonleiter, Skala, Farbpalette) ist die Menge aller Farben, die ein Gerät (Monitor, Drucker, Scanner, Film) darstellen, wiedergeben und aufzeichnen kann.
+                <p>Die wesentlichen Aufgaben des Colormanagement ist es, die Gamuts verschiedener Geräte so aufeinander abzubilden, dass möglichst wenige störende Farbverschiebungen und Abrisse entstehen.</p> 
+                <p>Ist der ursprüngliche Farbraum größer als jener, in den umgewandelt werden soll, ist es sehr wahrscheinlich, dass bei der Reproduktion bestimmte Farben vom Zielmedium nicht korrekt abgebildet werden. Um diese Abweichungen so weit wie möglich in Grenzen zu halten, nutzt man die sog. <span>Rendering Intents</span>.</p>
+            </div>
+        </section>
+
+        <section id="slide2">
+            <h1>Alltagsproblem eines Mediengestalters</h1>
+            <a href="#slide1">< zurück</a> 
+            <a href="#slide3">weiter ></a>
+            <div style="position: relative; display: flex; width: 90%; flex-direction: column; margin: 50px auto; padding: 50px 0px; border: 2px solid #333333; border-radius: 20px;">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima, id?</p>
+                <img style="width: 100%; height: auto; margin: 0 auto; max-width: 400px" src="img/rgb_cmyk.png" alt="">
+            </div>
+        </section>
+
+        <section id="slide3">
+            <h1>Gamuts/RGB/CMYK/CIElab</h1>
+            <a href="#slide2">< zurück</a> 
+            <a href="#slide4">weiter ></a>
+            <div style="position: relative; display: flex; width: 90%; flex-direction: column; margin: 50px auto; padding: 50px 0px; border: 2px solid #333333; border-radius: 20px;">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima, id?</p>
+                <img style="width: 100%; height: auto; margin: 0 auto; max-width: 600px" src="img/gamuts.jpg" alt="">
+            </div>
+        </section>
+
+        <section id="slide4">
+            <h1>Rendering Intents</h1>
+            <a href="#slide3">< zurück</a> 
+            <a href="#slide5">weiter ></a>
+            <div style="position: relative; display: flex; width: 90%; flex-direction: column; margin: 50px auto; padding: 50px 0px; border: 2px solid #333333; border-radius: 20px;">
+                <p>Rendering Intents definieren, auf welche Art und Weise diese Überführung der einzelnen Farben eines Bildes von einem Farbraum in den anderen stattfinden soll. Vor allem dann, wenn Bilder aus einem größeren in einen kleineren Farbraum transformiert werden, wie das meist bei der RGB-CMYK-Umwandlung der Fall ist, erhält man je nach gewähltem Rendering Intent ganz unterschiedliche Resultate. Je nachdem, welches Ziel mit der Farbtransformation erreicht werden soll, wird ein jeweils diesem Ziel entsprechender Rendering Intent gewählt. Vom ICC wurden deshalb vier verschiedene Rendering Intents festgelegt.</p>
+                <p>Es sind dies der <span>wahrnehmungsorientierte</span>, der <span>relativ farbmetrische</span>, der <span>absolut farbmetrische</span> und der <span>sättigungserhaltende</span> Rendering Intent.</p>
+                
+                
+            </div>
+        </section>
+
+        <section id="slide5">
+            <h1>Grenzen der Farbraumtransformation</h1>
+            <a href="#slide4">< zurück</a> 
+            <a href="#slide6">weiter ></a>
+            <div style="position: relative; display: flex; width: 90%; flex-direction: column; margin: 50px auto; padding: 50px 0px; border: 2px solid #333333; border-radius: 20px;">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima, id?</p>
+            </div>
+        </section>
+
+        <section id="slide6">
+            <h1>Weiterführende Fragen</h1>
+            <a href="#slide5">< zurück</a> 
+            <a href="#slide1">Start</a>
+            <div style="position: relative; display: flex; width: 90%; flex-direction: column; margin: 50px auto; padding: 50px 0px; border: 2px solid #333333; border-radius: 20px;">
+                <p>
+                    <ol style="font-size: 1.5rem; line-height: 2.5rem">
+                        <li>Wozu wird Farbtransformation gebraucht?</li>
+                        <li>Welches Probleme ergeben sich bei der Farbtransformation von CMYK nach RGB?</li>
+                        <li>Welcher Rendering Intent bietet sich bei der Konvertierung einer Digitalfotographie zu einer Druckdatei?</li>
+                        <li>Welchen Vorteil bieten Device-Link-Profile?</li>
+                        <li>Wo liegt der Nachteil eines Device-Link-Profils?</li>
+                    </ol>
+                </p>
+            </div>
+        </section>
+
+        <section id="start">
+            <a href="#slide1">Farbraumtransformation</a>
+        </section>
+
+    </main>
 </body>
+
 </html>
