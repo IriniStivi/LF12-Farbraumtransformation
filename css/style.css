@@ -11,6 +11,7 @@ h1 {
     color: #fff;
     padding-top: 10px;
     padding-bottom: 10px;
+    line-height: 1.5;
 }
 
 h2 {
@@ -33,6 +34,9 @@ span {
     background-color: yellow;
     padding: 5px;
 }
+strong {
+    font-family: 'Courier New', Courier, monospace;
+}
 
 img {
     width: 100%;
@@ -54,7 +58,7 @@ section {
 
 #start {
     background: white;
-    font-size: 5rem;
+    font-size: 3rem;
     position: relative;
     text-align: center;
     padding-top: 200px;

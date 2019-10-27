@@ -15,18 +15,16 @@
 
         <section id="slide1">
             <h1>Alltagsproblem eines Mediengestalters</h1>
-            <a href="#slide2">weiter ></a>
             <div style="position: relative; display: flex; width: 90%; flex-direction: column; margin: 50px auto; padding: 50px 0px; border: 2px solid #333333; border-radius: 20px;">
                 <img src="img/rgb_cmyk.png" alt="">
                 <p>Meist müssen Farbräume mit höherem Informationsumfang (RGB) zu einem solchen mit niedrigerem Umfang (CMYK) transformiert werden.</p>
                 <p><span>PREISFRAGE:</span><br>Wie kriegt man das so hin, dass die Farben weitgehend erhalten bleiben?</p>
             </div>
+            <a href="#slide2">weiter ></a>
         </section>
 
         <section id="slide2">
             <h1>Definition Farbraumtransformation/Gamut Mapping</h1>
-            <a href="#slide1">< zurück</a> 
-            <a href="#slide3">weiter ></a>
             <div style="position: relative; display: flex; width: 90%; flex-direction: column; margin: 50px auto; padding: 50px 0px; border: 2px solid #333333; border-radius: 20px;">
                 <p><span>Farbraumtransformation (auch: Gamut Mapping) bezeichnet die Umsetzung von zwei beliebigen Farbräumen ineinander.</span></p>
 
@@ -36,31 +34,33 @@
 
                     <img src="img/color-profile.jpg" alt="">
 
-                    <p>Ist der ursprüngliche Farbraum größer als jener, in den umgewandelt werden soll, ist es sehr wahrscheinlich, dass bei der Reproduktion bestimmte Farben vom Zielmedium nicht korrekt abgebildet werden. Man muss also immer einen Kompromiss eingehen. <span>Um die Abweichungen so weit wie möglich in Grenzen zu halten, nutzt man die sog. Rendering Intents</span>.</p>
+                    <p>Ist der ursprüngliche Farbraum größer als jener, in den umgewandelt werden soll, ist es sehr wahrscheinlich, dass bei der Reproduktion bestimmte Farben vom Zielmedium nicht korrekt abgebildet werden. Man muss also immer einen Kompromiss eingehen.</p>
+                    <p><span>Um die Abweichungen so weit wie möglich in Grenzen zu halten, nutzt man die sog. Rendering Intents.</span></p> 
             </div>
+            <a href="#slide1">< zurück</a> 
+            <a href="#slide3">weiter ></a>
         </section>
 
         <section id="slide3">
             <h1>Gamuts/RGB/CMYK/CIElab</h1>
-            <a href="#slide2">< zurück</a> 
-            <a href="#slide4">weiter ></a>
             <div style="position: relative; display: flex; width: 90%; flex-direction: column; margin: 50px auto; padding: 50px 0px; border: 2px solid #333333; border-radius: 20px;">
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima, id?</p>
                 <img src="img/gamuts.jpg" alt="">
             </div>
+            <a href="#slide2">< zurück</a> 
+            <a href="#slide4">weiter ></a>
         </section>
 
         <section id="slide4">
             <h1>Rendering Intents</h1>
-            <a href="#slide3">< zurück</a> 
-            <a href="#slide5">weiter ></a>
             <div style="position: relative; display: flex; width: 90%; flex-direction: column; margin: 50px auto; padding: 50px 0px; border: 2px solid #333333; border-radius: 20px;">
                 <p><span>Die wesentlichen Aufgaben des Colormanagement ist es, die Gamuts verschiedener Geräte so aufeinander abzubilden, dass möglichst wenige störende Farbverschiebungen und Abrisse entstehen.</span></p>
 
                 <img src="img/perceptual-vs-absolute-rendering-intents_1621-2.jpg" alt="">
 
-                <p>Rendering Intents definieren, auf welche Art und Weise diese Überführung der einzelnen Farben eines Bildes von einem Farbraum in den anderen stattfinden soll. Vor allem dann, wenn Bilder aus einem größeren in einen kleineren Farbraum transformiert werden, wie das meist bei der RGB-CMYK-Umwandlung der Fall ist, erhält man je nach gewähltem Rendering Intent ganz unterschiedliche Resultate. Je nachdem, welches Ziel mit der Farbtransformation erreicht werden soll, wird ein jeweils diesem Ziel entsprechender Rendering Intent gewählt. Vom ICC wurden deshalb vier verschiedene Rendering Intents festgelegt.</p>
-                <p>Es sind dies der <span>wahrnehmungsorientierte</span>, der <span>relativ farbmetrische</span>, der <span>absolut farbmetrische</span> und der <span>sättigungserhaltende</span> Rendering Intent.</p>
+                <p>Rendering Intents definieren, auf welche Art und Weise diese Überführung der einzelnen Farben eines Bildes von einem Farbraum in den anderen stattfinden soll. Vor allem dann, wenn Bilder aus einem größeren in einen kleineren Farbraum transformiert werden, wie das meist bei der RGB-CMYK-Umwandlung der Fall ist, erhält man je nach gewähltem Rendering Intent ganz unterschiedliche Resultate.</p> 
+                <p>Je nachdem, welches Ziel mit der Farbtransformation erreicht werden soll, wird ein jeweils diesem Ziel entsprechender Rendering Intent gewählt. Vom ICC wurden deshalb vier verschiedene Rendering Intents festgelegt.</p>
+                <p>Es sind dies der <strong>wahrnehmungsorientierte</strong>, der <strong>relativ farbmetrische</strong>, der <strong>absolut farbmetrische</strong> und der <strong>sättigungserhaltende</strong> Rendering Intent.</p>
 
                 <h2>wahrnehmungsorientiert</h2>
                 <h2>relativ farbmetrisch</h2>
@@ -69,21 +69,21 @@
                 
                 
             </div>
+            <a href="#slide3">< zurück</a> 
+            <a href="#slide5">weiter ></a>
         </section>
 
         <section id="slide5">
             <h1>Grenzen der Farbraumtransformation</h1>
-            <a href="#slide4">< zurück</a> 
-            <a href="#slide6">weiter ></a>
             <div style="position: relative; display: flex; width: 90%; flex-direction: column; margin: 50px auto; padding: 50px 0px; border: 2px solid #333333; border-radius: 20px;">
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima, id?</p>
             </div>
+            <a href="#slide4">< zurück</a> 
+            <a href="#slide6">weiter ></a>
         </section>
 
         <section id="slide6">
             <h1>Weiterführende Fragen</h1>
-            <a href="#slide5">< zurück</a> 
-            <a href="#slide1">Start</a>
             <div style="position: relative; display: flex; width: 90%; flex-direction: column; margin: 50px auto; padding: 50px 0px; border: 2px solid #333333; border-radius: 20px;">
                 <p>
                     <ol style="font-size: 1.5rem; line-height: 2.5rem">
@@ -95,6 +95,8 @@
                     </ol>
                 </p>
             </div>
+            <a href="#slide5">< zurück</a> 
+            <a href="#slide1">Start</a>
         </section>
 
         <section id="start">
