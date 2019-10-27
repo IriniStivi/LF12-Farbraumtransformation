@@ -42,63 +42,63 @@
         </section>
 
         <section id="slide3">
-            <h1>Gamuts/RGB/CMYK/CIElab</h1>
+            <h1>Rendering Intents</h1>
             <div style="position: relative; display: flex; width: 90%; flex-direction: column; margin: 50px auto; padding: 50px 0px; border: 2px solid #333333; border-radius: 20px;">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima, id?</p>
-                <img src="img/gamuts.jpg" alt="">
+                    <p><span>Die wesentlichen Aufgaben des Colormanagement ist es, die Gamuts verschiedener Geräte so aufeinander abzubilden, dass möglichst wenige störende Farbverschiebungen und Abrisse entstehen.</span></p>
+
+                    <img src="img/perceptual-vs-absolute-rendering-intents_1621-2.jpg" alt="">
+    
+                    <p>Rendering Intents definieren, auf welche Art und Weise diese Überführung der einzelnen Farben eines Bildes von einem Farbraum in den anderen stattfinden soll. Vor allem dann, wenn Bilder aus einem größeren in einen kleineren Farbraum transformiert werden, wie das meist bei der RGB-CMYK-Umwandlung der Fall ist, erhält man je nach gewähltem Rendering Intent ganz unterschiedliche Resultate.</p> 
+                    <p>Je nachdem, welches Ziel mit der Farbtransformation erreicht werden soll, wird ein jeweils diesem Ziel entsprechender Rendering Intent gewählt. Vom ICC wurden deshalb vier verschiedene Rendering Intents festgelegt.</p>
+                    <p>Es sind dies der <strong>wahrnehmungsorientierte</strong>, der <strong>relativ farbmetrische</strong>, der <strong>absolut farbmetrische</strong> und der <strong>sättigungserhaltende</strong> Rendering Intent.</p>
+    
+                    <h2>wahrnehmungsorientiert</h2>
+                    <p><span>Dieser Rendering Intent passt die Farben so an, dass die Anmutung der Farbunterschiede erhalten bleibt.</span> Auf diese Weise werden Bilder auch in einem kleineren Farbraum so dargestellt, dass die Bilder als möglichst originalgetreu empfunden werden. Dies bedeutet, dass Farben nicht immer auch identisch dargestellt werden. Dies ist nötig, um die Farbunterschiede in einem Bild so zu erhalten, dass im Gesamtergebnis ein gleichwertiger Eindruck eines Bildes entsteht.</p>
+                    <h2>relativ farbmetrisch</h2>
+                    <p>Mit dieser Art der Farbraumtransformation wird keine Rücksicht auf die Farbunterschiede innerhalb eines Bildes genommen.Wird ein Bild mit diesem Rendering Intent transformiert, so werden die Farben, die im kleineren Farbraum dar- gestellt werden können, exakt so dargestellt wie im Original. <span>Farben, die nicht dargestellt werden können, werden einfach «abgeschnitten» und so reproduziert, wie es möglich ist.</span> Dieser Intent berücksichtigt die Farben des Bedruckstoffes nicht.</p>
+                    <h2>absolut farbmetrisch</h2>
+                    <p><span>Dieser Rendering Intent funktioniert gleich wie der relativ farbmetrische, jedoch mit dem Unterschied, dass der Weißpunkt (Bedruckstoff/Papier) mitdargestellt wird.</span> Aus diesem Grund eignet sich dieser Rendering Intent besonders, um auf hochweißen Proofpapieren sowohl die Farbdarstellung eines (kleineren) Farbraums wie auch den Weißpunkt (Bedruckstoff/Papier) zu simulieren. Er ist jedoch ungeeignet, um Bildmaterial von einem größeren in einen kleineren Farbraum zu transformieren.</p>
+                    <h2>sättigungserhaltend</h2>
+                    <p>Der vierte Rendering Intent ist vorwiegend für Businessgrafiken gedacht, die möglichst «leuchtend» dargestellt werden sollen. <span>Bei diesem Rendering Intent wird weniger auf die «Farbtreue» als auf die Sättigung Wert gelegt.</span> Er wird in der Farbmanagementpraxis sehr selten angewandt und ist beim farbmanagenden Anwender eher unbeliebt, da beim Farbmanagement ja normalerweise mehr auf kontrollierbare als auf leuchtende, satte Farben Wert gelegt wird.</p>
             </div>
             <a href="#slide2">< zurück</a> 
             <a href="#slide4">weiter ></a>
         </section>
 
         <section id="slide4">
-            <h1>Rendering Intents</h1>
-            <div style="position: relative; display: flex; width: 90%; flex-direction: column; margin: 50px auto; padding: 50px 0px; border: 2px solid #333333; border-radius: 20px;">
-                <p><span>Die wesentlichen Aufgaben des Colormanagement ist es, die Gamuts verschiedener Geräte so aufeinander abzubilden, dass möglichst wenige störende Farbverschiebungen und Abrisse entstehen.</span></p>
+                <h1>Grenzen der Farbraumtransformation</h1>
+                <div style="position: relative; display: flex; width: 90%; flex-direction: column; margin: 50px auto; padding: 50px 0px; border: 2px solid #333333; border-radius: 20px;">
+                    <img src="img/d-link3.png">
+                    
+                    <p>Dank ICC-Farbprofilen lassen sich Daten von einem Farbraum in einen anderen transformieren, wobei die Farbwiedergabe so gut wie möglich erhalten bleibt. <span>Problematisch ist jedoch, von einem CMYK in ein anderes CMYK zu konvertieren.</span> Dann geht nämlich der Separations- aufbau im Schwarzkanal verloren.</p>
+                    <p><span>Der vierte Kanal eines CMYK-Farbraums ist farbmetrisch «redundant». Das heißt, er ist für eine eindeutige Festlegung der Farbe im Prinzip überflüssig. Mehrere äquivalente Kombinationen von CMYK-Werten beschreiben jeweils ein und dieselbe Farbe.</span> Welcher Separationsaufbau – vor allem welcher Anteil Schwarz – gewählt wird, kann zwar technische Auswirkungen haben, wird aber bei der Transformation via PCS nicht berücksichtigt.</p>
 
-                <img src="img/perceptual-vs-absolute-rendering-intents_1621-2.jpg" alt="">
+                    <p><span>Um dieses Manko zu beheben, sind Device-Link-Profile entwickelt worden. Diese transformieren die Farbwerte mittels nur einer Farbtabelle direkt vom Quell- in den Zielfarbraum.</span> Durch den Verzicht auf den PCS fällt hier aber auch die Möglichkeit weg, Farben zwischen beliebigen Profilen zu konvertieren; <span>ein Device-Link-Profil beherrscht jeweils nur genau eine ganz bestimmte Transformation, von Farbraum A nach Farbraum B.</span> Schon für die Gegenrichtung, von B nach A, braucht es ein separates Device-Link-Profil. Ebenso für jeden anderen Quell- oder Zielfarbraum.</p>
 
-                <p>Rendering Intents definieren, auf welche Art und Weise diese Überführung der einzelnen Farben eines Bildes von einem Farbraum in den anderen stattfinden soll. Vor allem dann, wenn Bilder aus einem größeren in einen kleineren Farbraum transformiert werden, wie das meist bei der RGB-CMYK-Umwandlung der Fall ist, erhält man je nach gewähltem Rendering Intent ganz unterschiedliche Resultate.</p> 
-                <p>Je nachdem, welches Ziel mit der Farbtransformation erreicht werden soll, wird ein jeweils diesem Ziel entsprechender Rendering Intent gewählt. Vom ICC wurden deshalb vier verschiedene Rendering Intents festgelegt.</p>
-                <p>Es sind dies der <strong>wahrnehmungsorientierte</strong>, der <strong>relativ farbmetrische</strong>, der <strong>absolut farbmetrische</strong> und der <strong>sättigungserhaltende</strong> Rendering Intent.</p>
-
-                <h2>wahrnehmungsorientiert</h2>
-                <h2>relativ farbmetrisch</h2>
-                <h2>absolut farbmetrisch</h2>
-                <h2>sättigungserhaltend</h2>
-                
-                
-            </div>
-            <a href="#slide3">< zurück</a> 
-            <a href="#slide5">weiter ></a>
+                    <img src="img/d-link2.png">
+                </div>
+                <a href="#slide3">< zurück</a> 
+                <a href="#slide5">weiter ></a>
         </section>
 
         <section id="slide5">
-            <h1>Grenzen der Farbraumtransformation</h1>
-            <div style="position: relative; display: flex; width: 90%; flex-direction: column; margin: 50px auto; padding: 50px 0px; border: 2px solid #333333; border-radius: 20px;">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima, id?</p>
-            </div>
-            <a href="#slide4">< zurück</a> 
-            <a href="#slide6">weiter ></a>
+                <h1>Weiterführende Fragen</h1>
+                <div style="position: relative; display: flex; width: 90%; flex-direction: column; margin: 50px auto; padding: 50px 0px; border: 2px solid #333333; border-radius: 20px;">
+                    <p>
+                        <ol style="font-size: 1.5rem; line-height: 2.5rem">
+                            <li>Wozu wird Farbtransformation gebraucht?</li>
+                            <li>Welches Probleme ergeben sich bei der Farbtransformation von CMYK nach RGB?</li>
+                            <li>Welcher Rendering Intent bietet sich bei der Konvertierung einer Digitalfotographie zu einer Druckdatei?</li>
+                            <li>Welchen Vorteil bieten Device-Link-Profile?</li>
+                            <li>Wo liegt der Nachteil eines Device-Link-Profils?</li>
+                        </ol>
+                    </p>
+                </div>
+                <a href="#slide4">< zurück</a> 
+                <a href="#slide1">Start</a>
         </section>
 
-        <section id="slide6">
-            <h1>Weiterführende Fragen</h1>
-            <div style="position: relative; display: flex; width: 90%; flex-direction: column; margin: 50px auto; padding: 50px 0px; border: 2px solid #333333; border-radius: 20px;">
-                <p>
-                    <ol style="font-size: 1.5rem; line-height: 2.5rem">
-                        <li>Wozu wird Farbtransformation gebraucht?</li>
-                        <li>Welches Probleme ergeben sich bei der Farbtransformation von CMYK nach RGB?</li>
-                        <li>Welcher Rendering Intent bietet sich bei der Konvertierung einer Digitalfotographie zu einer Druckdatei?</li>
-                        <li>Welchen Vorteil bieten Device-Link-Profile?</li>
-                        <li>Wo liegt der Nachteil eines Device-Link-Profils?</li>
-                    </ol>
-                </p>
-            </div>
-            <a href="#slide5">< zurück</a> 
-            <a href="#slide1">Start</a>
-        </section>
-
+        
         <section id="start">
             <a href="#slide1">Farbraumtransformation</a>
         </section>
