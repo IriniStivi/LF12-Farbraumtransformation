@@ -48,7 +48,7 @@
 
                     <img src="img/perceptual-vs-absolute-rendering-intents_1621-2.jpg" alt="">
     
-                    <p>Rendering Intents definieren, auf welche Art und Weise diese Überführung der einzelnen Farben eines Bildes von einem Farbraum in den anderen stattfinden soll. Vor allem dann, wenn Bilder aus einem größeren in einen kleineren Farbraum transformiert werden, wie das meist bei der RGB-CMYK-Umwandlung der Fall ist, erhält man je nach gewähltem Rendering Intent ganz unterschiedliche Resultate.</p> 
+                    <p>Rendering Intents definieren, auf welche Art und Weise diese Überführung der einzelnen Farben eines Bildes von einem Farbraum in den anderen stattfinden soll. <strong>Vor allem dann, wenn Bilder aus einem größeren in einen kleineren Farbraum transformiert werden, wie das meist bei der RGB-CMYK-Umwandlung der Fall ist, erhält man je nach gewähltem Rendering Intent ganz unterschiedliche Resultate.</strong></p> 
                     <p>Je nachdem, welches Ziel mit der Farbtransformation erreicht werden soll, wird ein jeweils diesem Ziel entsprechender Rendering Intent gewählt. Vom ICC wurden deshalb vier verschiedene Rendering Intents festgelegt.</p>
                     <p>Es sind dies der <strong>wahrnehmungsorientierte</strong>, der <strong>relativ farbmetrische</strong>, der <strong>absolut farbmetrische</strong> und der <strong>sättigungserhaltende</strong> Rendering Intent.</p>
     
@@ -70,7 +70,7 @@
                 <div style="position: relative; display: flex; width: 90%; flex-direction: column; margin: 50px auto; padding: 50px 0px; border: 2px solid #333333; border-radius: 20px;">
                     <img src="img/d-link3.png">
                     
-                    <p>Dank ICC-Farbprofilen lassen sich Daten von einem Farbraum in einen anderen transformieren, wobei die Farbwiedergabe so gut wie möglich erhalten bleibt. <span>Problematisch ist jedoch, von einem CMYK in ein anderes CMYK zu konvertieren.</span> Dann geht nämlich der Separations- aufbau im Schwarzkanal verloren.</p>
+                    <p>Dank ICC-Farbprofilen lassen sich Daten von einem Farbraum in einen anderen transformieren, wobei die Farbwiedergabe so gut wie möglich erhalten bleibt. <span>Problematisch ist jedoch, von einem CMYK in ein anderes CMYK zu konvertieren.</span> Dann geht nämlich der Separationsaufbau im Schwarzkanal verloren.</p>
                     <p><span>Der vierte Kanal eines CMYK-Farbraums ist farbmetrisch «redundant». Das heißt, er ist für eine eindeutige Festlegung der Farbe im Prinzip überflüssig. Mehrere äquivalente Kombinationen von CMYK-Werten beschreiben jeweils ein und dieselbe Farbe.</span> Welcher Separationsaufbau – vor allem welcher Anteil Schwarz – gewählt wird, kann zwar technische Auswirkungen haben, wird aber bei der Transformation via PCS nicht berücksichtigt.</p>
 
                     <p><span>Um dieses Manko zu beheben, sind Device-Link-Profile entwickelt worden. Diese transformieren die Farbwerte mittels nur einer Farbtabelle direkt vom Quell- in den Zielfarbraum.</span> Durch den Verzicht auf den PCS fällt hier aber auch die Möglichkeit weg, Farben zwischen beliebigen Profilen zu konvertieren; <span>ein Device-Link-Profil beherrscht jeweils nur genau eine ganz bestimmte Transformation, von Farbraum A nach Farbraum B.</span> Schon für die Gegenrichtung, von B nach A, braucht es ein separates Device-Link-Profil. Ebenso für jeden anderen Quell- oder Zielfarbraum.</p>
