@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="https://fonts.googleapis.com/css?family=Comfortaa:400,600,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa:400,600,700,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <title>Farbraumtransformation</title>
 </head>
@@ -17,8 +17,9 @@
             <h1>Alltagsproblem eines Mediengestalters</h1>
             <a href="#slide2">weiter ></a>
             <div style="position: relative; display: flex; width: 90%; flex-direction: column; margin: 50px auto; padding: 50px 0px; border: 2px solid #333333; border-radius: 20px;">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima, id?</p>
-                <img style="width: 100%; height: auto; margin: 0 auto; max-width: 400px" src="img/rgb_cmyk.png" alt="">
+                <img src="img/rgb_cmyk.png" alt="">
+                <p>Meist müssen Farbräume mit höherem Informationsumfang (RGB) zu einem solchen mit niedrigerem Umfang (CMYK) transformiert werden.</p>
+                <p><span>PREISFRAGE:</span><br>Wie kriegt man das so hin, dass die Farben weitgehend erhalten bleiben?</p>
             </div>
         </section>
 
@@ -27,9 +28,15 @@
             <a href="#slide1">< zurück</a> 
             <a href="#slide3">weiter ></a>
             <div style="position: relative; display: flex; width: 90%; flex-direction: column; margin: 50px auto; padding: 50px 0px; border: 2px solid #333333; border-radius: 20px;">
-                <p>Das Gamut Mapping ist die Transformation der Farbräume. Der Gamut (englisch: Tonleiter, Skala, Farbpalette) ist die Menge aller Farben, die ein Gerät (Monitor, Drucker, Scanner, Film) darstellen, wiedergeben und aufzeichnen kann.
-                    <p>Die wesentlichen Aufgaben des Colormanagement ist es, die Gamuts verschiedener Geräte so aufeinander abzubilden, dass möglichst wenige störende Farbverschiebungen und Abrisse entstehen.</p> 
-                    <p>Ist der ursprüngliche Farbraum größer als jener, in den umgewandelt werden soll, ist es sehr wahrscheinlich, dass bei der Reproduktion bestimmte Farben vom Zielmedium nicht korrekt abgebildet werden. Um diese Abweichungen so weit wie möglich in Grenzen zu halten, nutzt man die sog. <span>Rendering Intents</span>.</p>
+                <p><span>Farbraumtransformation (auch: Gamut Mapping) bezeichnet die Umsetzung von zwei beliebigen Farbräumen ineinander.</span></p>
+
+                <img src="img/gamut.jpg" alt="">
+
+                    <p><span>Das Gamut Mapping ist also die Transformation der Farbräume.</span> Der Gamut (englisch: Tonleiter, Skala, Farbpalette) ist die Menge aller Farben, die ein Gerät (Monitor, Drucker, Scanner, Film) darstellen, wiedergeben und aufzeichnen kann.</p> 
+
+                    <img src="img/color-profile.jpg" alt="">
+
+                    <p>Ist der ursprüngliche Farbraum größer als jener, in den umgewandelt werden soll, ist es sehr wahrscheinlich, dass bei der Reproduktion bestimmte Farben vom Zielmedium nicht korrekt abgebildet werden. Man muss also immer einen Kompromiss eingehen. <span>Um die Abweichungen so weit wie möglich in Grenzen zu halten, nutzt man die sog. Rendering Intents</span>.</p>
             </div>
         </section>
 
@@ -39,7 +46,7 @@
             <a href="#slide4">weiter ></a>
             <div style="position: relative; display: flex; width: 90%; flex-direction: column; margin: 50px auto; padding: 50px 0px; border: 2px solid #333333; border-radius: 20px;">
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima, id?</p>
-                <img style="width: 100%; height: auto; margin: 0 auto; max-width: 600px" src="img/gamuts.jpg" alt="">
+                <img src="img/gamuts.jpg" alt="">
             </div>
         </section>
 
@@ -48,8 +55,17 @@
             <a href="#slide3">< zurück</a> 
             <a href="#slide5">weiter ></a>
             <div style="position: relative; display: flex; width: 90%; flex-direction: column; margin: 50px auto; padding: 50px 0px; border: 2px solid #333333; border-radius: 20px;">
+                <p><span>Die wesentlichen Aufgaben des Colormanagement ist es, die Gamuts verschiedener Geräte so aufeinander abzubilden, dass möglichst wenige störende Farbverschiebungen und Abrisse entstehen.</span></p>
+
+                <img src="img/perceptual-vs-absolute-rendering-intents_1621-2.jpg" alt="">
+
                 <p>Rendering Intents definieren, auf welche Art und Weise diese Überführung der einzelnen Farben eines Bildes von einem Farbraum in den anderen stattfinden soll. Vor allem dann, wenn Bilder aus einem größeren in einen kleineren Farbraum transformiert werden, wie das meist bei der RGB-CMYK-Umwandlung der Fall ist, erhält man je nach gewähltem Rendering Intent ganz unterschiedliche Resultate. Je nachdem, welches Ziel mit der Farbtransformation erreicht werden soll, wird ein jeweils diesem Ziel entsprechender Rendering Intent gewählt. Vom ICC wurden deshalb vier verschiedene Rendering Intents festgelegt.</p>
                 <p>Es sind dies der <span>wahrnehmungsorientierte</span>, der <span>relativ farbmetrische</span>, der <span>absolut farbmetrische</span> und der <span>sättigungserhaltende</span> Rendering Intent.</p>
+
+                <h2>wahrnehmungsorientiert</h2>
+                <h2>relativ farbmetrisch</h2>
+                <h2>absolut farbmetrisch</h2>
+                <h2>sättigungserhaltend</h2>
                 
                 
             </div>
